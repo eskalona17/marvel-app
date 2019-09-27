@@ -1,22 +1,40 @@
 import React from 'react'
-import Characters from './Characters';
+import Character from './Character';
 
 const CharactersList = (props) => {
+    
     const list = props.characters.map((character, i) => (
         <div className="col-4 mb-4" key={i}>
-            <Characters character={character} />
+            <Character character={character} />
+            
         </div>
     ))
 
     return (
-        <div className="EpisodesList">
-            <h4>All episodes</h4>
-
             <div className="row">
                 {list}
             </div>
-        </div>
     );
 }
 
 export default CharactersList
+
+// import React, { Component } from 'react'
+// import Character from './Character';
+
+// class CharactersList extends Component {
+//     render(){
+//         return(
+//             <div>
+//                 {this.props.characters.map((character,i) =>(
+//                     <div className="col-4 mb-4" key={i}>
+//                     <Character character={character} />
+                                
+//                      </div>
+//                     ))}
+//             </div>
+//         )
+//     }
+// }
+
+// export default CharactersList

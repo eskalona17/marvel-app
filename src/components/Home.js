@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import CharactersList from './CharactersList'
 
@@ -13,21 +13,30 @@ class Home extends Component {
             .then(
                 characters => {
                     this.setState({
-                        characters: characters
+                        characters: characters.data.data.results
                     })
-                    console.log(characters.data.data.results[1].name)
+                    console.log(characters.data.data.results.name)
                 }).catch(console.log)
-        // .then(result=>{
-        //     console.log(result)
-        // }).catch(console.log)
+            // .then(res => res.json())
+            // .then((json)=>{
+            //     for (const hero of json.data.results){
+            //         let urlhero = hero.urls[0].url;
+            //     }
+            // })
+     
     }
     render() {
 
+        const characters = this.state.characters
+
         return (
+            <Fragment>
             <div>
-                <h1>Hola paco</h1>
-                <CharactersList characters={this.state.characters} />
+                <h1>Hola paco </h1>
+                <CharactersList characters={characters} />
+         
             </div>
+            </Fragment>
         )
     }
 }
