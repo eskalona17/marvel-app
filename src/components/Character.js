@@ -1,23 +1,15 @@
-import React, { Component, Fragment, Children } from 'react'
+import React, { Component } from 'react'
 
 class Character extends Component {
 
 
     render() {
 
-        // const character = this.props
-
-        // console.log('hola soy props: '+this.props)
-
-
         return (
-            <div className="Episode card">
-                
+            <div className="card"> 
+                     <img src={`${this.props.character.thumbnail.path}.${this.props.character.thumbnail.extension}`} alt="images" />
                 <div className="card-body">
-                    <ul>
-                        {this.props.character.name}
-                        <img src={`${this.props.character.thumbnail.path}.${this.props.character.thumbnail.extension}`} alt="images"/>
-                    </ul>
+                    <h5 className="card-title">{this.props.character.name}</h5>
                 </div>
             </div>
         )
