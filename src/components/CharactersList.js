@@ -4,7 +4,7 @@ import Character from './Character';
 const CharactersList = (props) => {
 
     const list = props.characters.map((character, i) => (
-        <div className="col-4 mb-4" key={i}>
+        <div className="col-3 mb-4" key={i}>
             <Character character={character} />
 
         </div>
@@ -20,22 +20,3 @@ const CharactersList = (props) => {
 
 export default CharactersList
 
-// import React, { Component } from 'react'
-// import Character from './Character';
-
-// class CharactersList extends Component {
-//     render(){
-//         return(
-//             <div>
-//                 {this.props.characters.map((character,i) =>(
-//                     <div className="col-4 mb-4" key={i}>
-//                     <Character character={character} />
-
-//                      </div>
-//                     ))}
-//             </div>
-//         )
-//     }
-// }
-
-// export default CharactersList

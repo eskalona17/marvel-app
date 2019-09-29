@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { queryString } from 'query-string';
 
 class SearchBar extends Component {
   state = {
@@ -12,8 +11,8 @@ class SearchBar extends Component {
 
     this.setState({
       [e.target.name]: e.target.value,
-      error: (e.target.value.length <= 5)
-    })
+      error: (e.target.value.length <= 3)
+    }, () => this.props.onSearch(this.state.searchText))
   }
 
   handleBlur = (e) => {
@@ -22,8 +21,8 @@ class SearchBar extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-
-    this.props.onSearch(this.state.searchText)
+    const { searchText } = this.state;
+    this.props.onSearch(searchText)
   }
 
   componentDidMount() {
@@ -35,11 +34,11 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="SearchBar row mb-4">
-        <div className="col-8">
+      <div className="SearchBar row mb-4 mt-4 d-flex justify-content-center h-100">
+        <div className="col-6">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label>Search</label>
+              {/* <label>Search</label> */}
               <input type="text" className="form-control"
                 name="searchText"
                 autoComplete="off"
