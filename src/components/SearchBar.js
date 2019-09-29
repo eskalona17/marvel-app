@@ -38,7 +38,6 @@ class SearchBar extends Component {
         <div className="col-6">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              {/* <label>Search</label> */}
               <input type="text" className="form-control"
                 name="searchText"
                 autoComplete="off"

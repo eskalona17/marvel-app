@@ -10,19 +10,18 @@ class Home extends Component {
         characters: [],
         searchCharacters: [],
     }
-    
 
     componentDidMount() {
         axios.get(`https://gateway.marvel.com/v1/public/characters?limit=12&ts=1&apikey=6e8f34cea393d16874d5c0168d855c9c&hash=f68b97ab42350ebc7b61b55b5fd02e20`)
             .then(
                 characters => {
                     this.setState({
-                        characters: characters.data.data.results
-                        // searchCharacters: characters.data.data.results
+                        characters: characters.data.data.results,
+                        searchCharacters: characters.data.data.results
                     })
-                    // console.log(characters.data.data.results.name)
-                    console.log(this.props.location)
-                }).catch(console.log)
+                    console.log(characters.data.data.results.name)
+                })
+            .catch(console.log)
 
     }
 
